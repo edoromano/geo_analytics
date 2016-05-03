@@ -41,3 +41,10 @@ group :development do
   gem 'spring'
 end
 
+gem 'devise'
+
+group :test do
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem 'ffaker'
+end
