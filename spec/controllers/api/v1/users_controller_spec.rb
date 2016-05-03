@@ -63,7 +63,6 @@ describe Api::V1::UsersController do
           expect(user_response[:email]).to eql "newmail@example.com"
         end
 
-        it { should respond_with 200 }
       end
 
       context "when is not created" do
@@ -84,6 +83,15 @@ describe Api::V1::UsersController do
         end
 
       end
+    end
+
+    describe "DELETE #destroy" do
+      before(:each) do
+        @user = FactoryGirl.create :user
+        delete :destroy, { id: @user.id }, format: :json
+      end
+
+
     end
   end
 end
