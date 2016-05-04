@@ -94,8 +94,22 @@ describe Api::V1::UsersController do
         api_authorization_header @user.auth_token
         delete :destroy, { id: @user.id }, format: :json
       end
+    end
 
+    describe "#houses association" do
 
+      before do
+        @user.save
+        3.times { FactoryGirl.create :house, user: @user }
+      end
+
+      it "destroys the associated houses on self destruct" do
+        houses = @user.houses
+        @user.destroy
+        houses.each do |house|
+          expect(House.find(house)).to raise_error ActiveRecord::RecordNotFound
+        end
+      end
     end
   end
 end

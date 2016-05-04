@@ -52,4 +52,5 @@ group :test do
   gem 'ffaker'
   gem 'minitest'
   gem 'shoulda-matchers', '~> 2.5.0'
+  gem 'pry-nav'
 end
