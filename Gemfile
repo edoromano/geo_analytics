@@ -43,9 +43,13 @@ end
 
 gem 'devise'
 
+group :test, :development do
+  gem 'rspec-rails'
+end
+
 group :test do
-  gem "rspec-rails"
   gem "factory_girl_rails"
   gem 'ffaker'
-  gem 'shoulda-matchers'
+  gem 'minitest'
+  gem 'shoulda-matchers', '~> 2.5.0'
 end
