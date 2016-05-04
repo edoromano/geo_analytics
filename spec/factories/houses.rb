@@ -5,6 +5,6 @@ FactoryGirl.define do
     published false
     latitude { FFaker::Geolocation.lat }
     longitude { FFaker::Geolocation.lng }
-    user_id "1"
+    user
   end
 end
