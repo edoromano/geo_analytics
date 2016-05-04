@@ -45,11 +45,11 @@ gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails'
+  gem "factory_girl_rails"
+  gem 'ffaker'
 end
 
 group :test do
-  gem "factory_girl_rails"
-  gem 'ffaker'
   gem 'minitest'
   gem 'shoulda-matchers', '~> 2.5.0'
   gem 'pry-nav'
