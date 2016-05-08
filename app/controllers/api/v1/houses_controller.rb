@@ -7,7 +7,7 @@ class Api::V1::HousesController < ApplicationController
   end
 
   def index
-    respond_with House.all
+    respond_with House.search(params)
   end
 
   def create
