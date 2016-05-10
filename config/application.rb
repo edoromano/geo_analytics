@@ -30,6 +30,10 @@ module GeoAnalytics
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
+     config.action_dispatch.default_headers = {
+       'Access-Control-Allow-Origin' => 'http://mylocal.com:8080',
+       'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+     }
     config.active_record.raise_in_transactional_callbacks = true
     config.generators do |g|
       g.test_framework :rspec, fixture: true

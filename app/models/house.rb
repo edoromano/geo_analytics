@@ -10,7 +10,7 @@ class House < ActiveRecord::Base
     where("lower(description) LIKE ?", "%#{description.downcase}%")
   }
   scope :filter_by_geolocation, lambda { |latitude, longitude, radio|
-    where("ACOS(SIN(?)*SIN(radians(latitude)) + COS(?)*COS(radians(latitude))*COS(radians(longitude)- ?)) * 6371 <= ?", latitude,latitude,longitude,radio.to_i*1000)
+    where("(6371 *  ACOS(COS(radians(?)) * COS(radians(latitude)) * COS(radians(longitude) - radians(?)) + SIN(radians(?)) * SIN(radians(latitude))))  < ?", latitude,longitude,latitude, radio.to_i)
   }
 
   def self.search(params = {})
