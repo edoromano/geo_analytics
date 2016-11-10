@@ -14,12 +14,17 @@
 ActiveRecord::Schema.define(version: 20160504052706) do
 
   create_table "houses", force: :cascade do |t|
-    t.string   "description", limit: 255,                          default: ""
-    t.decimal  "price",                   precision: 10, scale: 7, default: 0.0
-    t.boolean  "published",                                        default: false
-    t.decimal  "latitude",                precision: 10, scale: 7, default: 25.6667
-    t.decimal  "longitude",               precision: 10, scale: 7, default: -100.3167
-    t.integer  "user_id",     limit: 4
+    t.string   "price",        limit: 255,                          default: "0.0"
+    t.string   "city",         limit: 255,                          default: ""
+    t.string   "neighborhood", limit: 255,                          default: ""
+    t.integer  "floors",       limit: 4,                            default: 0
+    t.integer  "rooms",        limit: 4,                            default: 0
+    t.string   "area",         limit: 255,                          default: "0.0"
+    t.integer  "bathrooms",    limit: 4,                            default: 0
+    t.boolean  "published",                                         default: false
+    t.decimal  "latitude",                 precision: 10, scale: 7, default: 25.6667
+    t.decimal  "longitude",                precision: 10, scale: 7, default: -100.3167
+    t.integer  "user_id",      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
